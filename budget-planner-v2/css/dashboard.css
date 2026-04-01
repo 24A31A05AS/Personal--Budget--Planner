@@ -1,0 +1,117 @@
+/* ============================================
+   BUDGETWISE — DASHBOARD COMPONENT STYLES
+   ============================================ */
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  animation: fadeUp var(--duration-slow) var(--ease-out) 80ms both;
+}
+
+.stat-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration-med) var(--ease-out),
+              border-color var(--duration-med) var(--ease-out);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 2px;
+}
+
+.stat-card.income::before   { background: var(--color-primary); }
+.stat-card.expense::before  { background: var(--color-danger); }
+.stat-card.balance::before  { background: var(--color-info); }
+.stat-card.savings::before  { background: var(--color-warning); }
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.12);
+}
+
+.stat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stat-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.stat-card.income  .stat-icon { background: var(--color-primary-dim); }
+.stat-card.expense .stat-icon { background: var(--color-danger-dim); }
+.stat-card.balance .stat-icon { background: var(--color-info-dim); }
+.stat-card.savings .stat-icon { background: var(--color-warning-dim); }
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.stat-card.income  .stat-value { color: var(--color-primary); }
+.stat-card.expense .stat-value { color: var(--color-danger); }
+.stat-card.balance .stat-value { color: var(--color-info); }
+.stat-card.savings .stat-value { color: var(--color-warning); }
+
+.stat-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.stat-progress {
+  margin-top: var(--space-sm);
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.stat-progress-bar {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 600ms var(--ease-out);
+}
+
+.stat-card.income  .stat-progress-bar { background: var(--color-primary); }
+.stat-card.expense .stat-progress-bar { background: var(--color-danger); }
+.stat-card.savings .stat-progress-bar { background: var(--color-warning); }
+
+@media (max-width: 900px) {
+  .dashboard { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .dashboard { grid-template-columns: 1fr 1fr; }
+  .stat-value { font-size: 1.2rem; }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BudgetWise — Personal Budget Planner</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+
+  <!-- Component Styles -->
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/income.css" />
+  <link rel="stylesheet" href="../css/expenses.css" />
+  <link rel="stylesheet" href="../css/summary.css" />
+  <link rel="stylesheet" href="../css/calculator.css" />
+  <link rel="stylesheet" href="../css/charts.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="header-root"></div>
+
+  <!-- Main App -->
+  <main class="app-layout">
+
+    <!-- Dashboard Stats -->
+    <div id="dashboard-root"></div>
+
+    <div class="content-grid">
+      <!-- Income Section -->
+      <section id="income-root"></section>
+
+      <!-- Expenses Section -->
+      <section id="expenses-root"></section>
+    </div>
+
+    <!-- Charts Section -->
+    <div id="charts-root"></div>
+
+    <div class="bottom-grid">
+      <!-- Monthly Summary -->
+      <div id="summary-root"></div>
+
+      <!-- Savings Calculator -->
+      <div id="calculator-root"></div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>BudgetWise &copy; 2025 — Track smarter. Save better.</p>
+  </footer>
+
+  <!-- JS Modules -->
+  <script src="../js/store.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/app.js"></script>
+
+  <!-- Component Scripts -->
+  <script src="../js/header.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/income.js"></script>
+  <script src="../js/expenses.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/summary.js"></script>
+  <script src="../js/calculator.js"></script>
+
+  <script>
+    // Boot the app
+    App.init();
+  </script>
+</body>
+</html>

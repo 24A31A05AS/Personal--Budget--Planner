@@ -1,0 +1,92 @@
+/* ============================================
+   BUDGETWISE — INCOME COMPONENT STYLES
+   ============================================ */
+
+#income-root {
+  animation: fadeUp var(--duration-slow) var(--ease-out) 160ms both;
+}
+
+.income-list {
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.income-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+  margin-bottom: var(--space-sm);
+  gap: var(--space-sm);
+  transition: border-color var(--duration-fast);
+  animation: fadeUp 250ms var(--ease-out) both;
+}
+
+.income-item:hover {
+  border-color: rgba(99,217,180,0.2);
+}
+
+.income-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.income-item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.income-item-info {
+  min-width: 0;
+}
+
+.income-item-desc {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.income-item-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.income-item-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.income-amount {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.income-empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: var(--space-lg) 0;
+}
+
+.income-section-icon { background: var(--color-primary-dim); color: var(--color-primary); }

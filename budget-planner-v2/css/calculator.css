@@ -1,0 +1,97 @@
+/* ============================================
+   BUDGETWISE — SAVINGS CALCULATOR COMPONENT STYLES
+   ============================================ */
+
+#calculator-root {
+  animation: fadeUp var(--duration-slow) var(--ease-out) 340ms both;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.calc-result-box {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-glow);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+  margin-top: var(--space-md);
+  box-shadow: var(--shadow-glow);
+}
+
+.calc-result-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: var(--space-sm);
+}
+
+.calc-result-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+.calc-result-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.calc-insights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.calc-insight-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: 0.83rem;
+}
+
+.calc-insight-label {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.calc-insight-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.insight-good    { color: var(--color-primary); }
+.insight-warn    { color: var(--color-warning); }
+.insight-bad     { color: var(--color-danger);  }
+.insight-neutral { color: var(--text-primary);  }
+
+.calc-tip {
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary-dim);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.calc-tip strong {
+  color: var(--color-primary);
+}
