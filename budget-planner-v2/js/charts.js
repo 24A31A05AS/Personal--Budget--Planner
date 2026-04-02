@@ -18,7 +18,7 @@ const ChartsComponent = (() => {
               Spending by Category
             </div>
           </div>
-          ${totalExpenses > 0 ? buildDonut(categoryData, totalExpenses) : '<div class="chart-empty">No expense data yet</div>'}
+          {totalExpenses > 0 ? buildDonut(categoryData, totalExpenses) : '<div class="chart-empty">No expense data yet</div>'}
         </div>
 
         <div class="card">
@@ -28,7 +28,7 @@ const ChartsComponent = (() => {
               6-Month Overview
             </div>
           </div>
-          ${buildBarChart(month, year)}
+          {buildBarChart(month, year)}
           <div class="chart-legend-row">
             <span class="chart-legend-dot income">Income</span>
             <span class="chart-legend-dot expense">Expenses</span>
@@ -59,13 +59,13 @@ const ChartsComponent = (() => {
 
     const paths = segments.map(s => `
       <circle
-        cx="${cx}" cy="${cy}" r="${R}"
+        cx="{cx}" cy="{cy}" r="{R}"
         fill="none"
-        stroke="${s.color}"
-        stroke-width="${SW}"
-        stroke-dasharray="${s.dash} ${s.gap}"
-        stroke-dashoffset="${-s.offset}"
-        transform="rotate(-90 ${cx} ${cy})"
+        stroke="{s.color}"
+        stroke-width="{SW}"
+        stroke-dasharray="{s.dash} {s.gap}"
+        stroke-dashoffset="{-s.offset}"
+        transform="rotate(-90 {cx} {cy})"
         style="transition: stroke-dasharray 600ms cubic-bezier(0.22,1,0.36,1);"
       />
     `).join('');
@@ -75,9 +75,9 @@ const ChartsComponent = (() => {
       const pct  = Utils.percent(value, total);
       return `
         <div class="legend-item">
-          <div class="legend-dot" style="background: ${meta.color}"></div>
-          <span class="legend-label">${meta.label}</span>
-          <span class="legend-value">${pct}%</span>
+          <div class="legend-dot" style="background: {meta.color}"></div>
+          <span class="legend-label">{meta.label}</span>
+          <span class="legend-value">{pct}%</span>
         </div>
       `;
     }).join('');
@@ -85,17 +85,17 @@ const ChartsComponent = (() => {
     return `
       <div class="donut-wrapper">
         <svg class="donut-svg" width="140" height="140" viewBox="0 0 140 140">
-          <circle cx="${cx}" cy="${cy}" r="${R}" fill="none"
-            stroke="rgba(255,255,255,0.05)" stroke-width="${SW}" />
-          ${paths}
-          <text x="${cx}" y="${cy - 6}" text-anchor="middle" class="donut-center-text" font-size="14">
-            ${Utils.formatCurrency(total).replace('.00','')}
+          <circle cx="{cx}" cy="{cy}" r="{R}" fill="none"
+            stroke="rgba(255,255,255,0.05)" stroke-width="{SW}" />
+          {paths}
+          <text x="{cx}" y="{cy - 6}" text-anchor="middle" class="donut-center-text" font-size="14">
+            {Utils.formatCurrency(total).replace('.00','')}
           </text>
-          <text x="${cx}" y="${cy + 12}" text-anchor="middle" class="donut-sub" font-size="9">
+          <text x="{cx}" y="{cy + 12}" text-anchor="middle" class="donut-sub" font-size="9">
             Total Spent
           </text>
         </svg>
-        <div class="donut-legend">${legendItems}</div>
+        <div class="donut-legend">{legendItems}</div>
       </div>
     `;
   }
@@ -123,22 +123,22 @@ const ChartsComponent = (() => {
 
       return `
         <div class="bar-group">
-          <div class="bar-stack" style="height: ${barHeight}px;">
+          <div class="bar-stack" style="height: {barHeight}px;">
             <div class="bar-fill income-bar"
-              style="height: ${iH}px; ${isCurrentMonth ? 'opacity:1;' : ''}"></div>
+              style="height: {iH}px; {isCurrentMonth ? 'opacity:1;' : ''}"></div>
           </div>
-          <div class="bar-stack" style="height: ${barHeight}px; margin-top: -${barHeight}px;">
+          <div class="bar-stack" style="height: {barHeight}px; margin-top: -{barHeight}px;">
             <div class="bar-fill expense-bar"
-              style="height: ${eH}px; ${isCurrentMonth ? 'opacity:1;' : ''}"></div>
+              style="height: {eH}px; {isCurrentMonth ? 'opacity:1;' : ''}"></div>
           </div>
-          <span class="bar-label" style="${isCurrentMonth ? 'color:var(--text-primary);font-weight:600;' : ''}">
-            ${label}
+          <span class="bar-label" style="{isCurrentMonth ? 'color:var(--text-primary);font-weight:600;' : ''}">
+            {label}
           </span>
         </div>
       `;
     }).join('');
 
-    return `<div class="bar-chart">${bars}</div>`;
+    return `<div class="bar-chart">{bars}</div>`;
   }
 
   return { render };
