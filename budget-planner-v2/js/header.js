@@ -30,7 +30,7 @@ const HeaderComponent = (() => {
         <div class="header-month-nav">
           <button class="month-nav-btn" id="prev-month-btn" title="Previous Month">&#8249;</button>
           <span class="month-nav-label" id="month-nav-label">
-            {Utils.formatMonthYear(navMonth, navYear)}
+            ${Utils.formatMonthYear(navMonth, navYear)}
           </span>
           <button class="month-nav-btn" id="next-month-btn" title="Next Month">&#8250;</button>
         </div>
