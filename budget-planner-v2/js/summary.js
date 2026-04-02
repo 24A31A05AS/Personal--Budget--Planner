@@ -20,8 +20,8 @@ const SummaryComponent = (() => {
     let budgetStatusText  = 'Within Budget';
     if (budgetPct !== null) {
       if (budgetPct >= 100) { budgetStatusClass = 'budget-danger';  budgetStatusText = 'Over Budget!'; }
-      else if (budgetPct >= 80) { budgetStatusClass = 'budget-warning'; budgetStatusText = `${budgetPct}% Used`; }
-      else { budgetStatusText = `${budgetPct}% Used`; }
+      else if (budgetPct >= 80) { budgetStatusClass = 'budget-warning'; budgetStatusText = `{budgetPct}% Used`; }
+      else { budgetStatusText = `{budgetPct}% Used`; }
     }
 
     const rows = Object.entries(categoryData)
@@ -31,9 +31,9 @@ const SummaryComponent = (() => {
         const pct  = Utils.percent(value, totalExpenses);
         return `
           <tr>
-            <td><span class="summary-cat-icon">${meta.icon}</span>${meta.label}</td>
-            <td>${pct}%</td>
-            <td style="color: var(--color-danger);">${Utils.formatCurrency(value)}</td>
+            <td><span class="summary-cat-icon">{meta.icon}</span>{meta.label}</td>
+            <td>{pct}%</td>
+            <td style="color: var(--color-danger);">{Utils.formatCurrency(value)}</td>
           </tr>
         `;
       }).join('');
@@ -45,10 +45,10 @@ const SummaryComponent = (() => {
             <div class="icon" style="background:var(--color-primary-dim);color:var(--color-primary);">📋</div>
             Monthly Summary
           </div>
-          <span style="font-size:0.8rem;color:var(--text-muted);">${Utils.formatMonthYear(month, year)}</span>
+          <span style="font-size:0.8rem;color:var(--text-muted);">{Utils.formatMonthYear(month, year)}</span>
         </div>
 
-        ${rows ? `
+        {rows ? `
           <table class="summary-table">
             <thead>
               <tr>
@@ -62,18 +62,18 @@ const SummaryComponent = (() => {
               <tr class="summary-total-row">
                 <td>Total Expenses</td>
                 <td>100%</td>
-                <td style="color:var(--color-danger);">${Utils.formatCurrency(totalExpenses)}</td>
+                <td style="color:var(--color-danger);">{Utils.formatCurrency(totalExpenses)}</td>
               </tr>
               <tr class="summary-total-row">
                 <td>Total Income</td>
                 <td></td>
-                <td style="color:var(--color-primary);">${Utils.formatCurrency(totalIncome)}</td>
+                <td style="color:var(--color-primary);">{Utils.formatCurrency(totalIncome)}</td>
               </tr>
               <tr class="summary-total-row">
                 <td>Net Balance</td>
                 <td></td>
                 <td style="color:${balance >= 0 ? 'var(--color-primary)' : 'var(--color-danger)'};">
-                  ${Utils.formatCurrency(balance)}
+                  {Utils.formatCurrency(balance)}
                 </td>
               </tr>
             </tbody>
@@ -88,12 +88,12 @@ const SummaryComponent = (() => {
               <span style="color:var(--text-muted);font-size:0.9rem;">$</span>
               <input type="number" class="budget-limit-input" id="budget-limit-input"
                 placeholder="Set limit"
-                value="${monthlyBudgetLimit || ''}"
+                value="{monthlyBudgetLimit || ''}"
                 min="0" step="100" />
             </div>
           </div>
           ${budgetPct !== null
-            ? `<span class="budget-status ${budgetStatusClass}">${budgetStatusText}</span>`
+            ? `<span class="budget-status {budgetStatusClass}">{budgetStatusText}</span>`
             : `<span style="font-size:0.75rem;color:var(--text-muted);">No limit set</span>`
           }
         </div>
