@@ -17,7 +17,7 @@ const ExpenseComponent = (() => {
             <div class="icon expense-section-icon">💸</div>
             Expense Entries
           </div>
-          <span class="badge badge-expense">${getMonthExpenses().length} records</span>
+          <span class="badge badge-expense">{getMonthExpenses().length} records</span>
         </div>
 
         <!-- Add Expense Form -->
@@ -25,13 +25,13 @@ const ExpenseComponent = (() => {
           <div class="form-group">
             <label class="form-label">Category</label>
             <select class="form-select" id="expense-category">
-              ${Object.entries(Utils.categoryMeta).map(([k,v]) =>
-                `<option value="${k}">${v.icon} ${v.label}</option>`
+              {Object.entries(Utils.categoryMeta).map(([k,v]) =>
+                `<option value="{k}">{v.icon} {v.label}</option>`
               ).join('')}
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Amount ($)</label>
+            <label class="form-label">Amount </label>
             <input type="number" class="form-input" id="expense-amount"
               placeholder="0.00" min="0" step="0.01" />
           </div>
@@ -46,7 +46,7 @@ const ExpenseComponent = (() => {
           <div class="form-group">
             <label class="form-label">Date</label>
             <input type="date" class="form-input" id="expense-date"
-              value="${todayString()}" />
+              value="{todayString()}" />
           </div>
         </div>
 
@@ -85,17 +85,17 @@ const ExpenseComponent = (() => {
         return `
           <div class="expense-item">
             <div class="expense-item-left">
-              <div class="expense-item-icon" style="background: ${meta.color}20;">
-                ${meta.icon}
+              <div class="expense-item-icon" style="background: {meta.color}20;">
+                {meta.icon}
               </div>
               <div class="expense-item-info">
-                <div class="expense-item-desc">${escapeHtml(item.description || meta.label)}</div>
-                <div class="expense-item-meta">${meta.label} · ${Utils.formatDate(item.date)}</div>
+                <div class="expense-item-desc">{escapeHtml(item.description || meta.label)}</div>
+                <div class="expense-item-meta">{meta.label} · {Utils.formatDate(item.date)}</div>
               </div>
             </div>
             <div class="expense-item-right">
-              <span class="expense-amount">-${Utils.formatCurrency(item.amount)}</span>
-              <button class="btn btn-danger" onclick="ExpenseComponent.deleteItem(${item.id})">✕</button>
+              <span class="expense-amount">-{Utils.formatCurrency(item.amount)}</span>
+              <button class="btn btn-danger" onclick="ExpenseComponent.deleteItem({item.id})">✕</button>
             </div>
           </div>
         `;
