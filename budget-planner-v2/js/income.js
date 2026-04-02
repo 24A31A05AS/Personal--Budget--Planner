@@ -17,7 +17,7 @@ const IncomeComponent = (() => {
             <div class="icon income-section-icon">💼</div>
             Income Entries
           </div>
-          <span class="badge badge-income">${getMonthIncomes().length} records</span>
+          <span class="badge badge-income">{getMonthIncomes().length} records</span>
         </div>
 
         <!-- Add Income Form -->
@@ -25,13 +25,13 @@ const IncomeComponent = (() => {
           <div class="form-group">
             <label class="form-label">Source</label>
             <select class="form-select" id="income-source">
-              ${Object.entries(Utils.incomeMeta).map(([k,v]) =>
-                `<option value="${k}">${v.icon} ${v.label}</option>`
+              {Object.entries(Utils.incomeMeta).map(([k,v]) =>
+                `<option value="{k}">{v.icon} {v.label}</option>`
               ).join('')}
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Amount ($)</label>
+            <label class="form-label">Amount</label>
             <input type="number" class="form-input" id="income-amount"
               placeholder="0.00" min="0" step="0.01" />
           </div>
@@ -46,7 +46,7 @@ const IncomeComponent = (() => {
           <div class="form-group">
             <label class="form-label">Date</label>
             <input type="date" class="form-input" id="income-date"
-              value="${todayString()}" />
+              value="{todayString()}" />
           </div>
         </div>
 
@@ -84,15 +84,15 @@ const IncomeComponent = (() => {
         return `
           <div class="income-item">
             <div class="income-item-left">
-              <div class="income-item-icon">${meta.icon}</div>
+              <div class="income-item-icon">{meta.icon}</div>
               <div class="income-item-info">
-                <div class="income-item-desc">${escapeHtml(item.description || meta.label)}</div>
-                <div class="income-item-meta">${meta.label} · ${Utils.formatDate(item.date)}</div>
+                <div class="income-item-desc">{escapeHtml(item.description || meta.label)}</div>
+                <div class="income-item-meta">{meta.label} · {Utils.formatDate(item.date)}</div>
               </div>
             </div>
             <div class="income-item-right">
-              <span class="income-amount">${Utils.formatCurrency(item.amount)}</span>
-              <button class="btn btn-danger" data-id="${item.id}" onclick="IncomeComponent.deleteItem(${item.id})">✕</button>
+              <span class="income-amount">{Utils.formatCurrency(item.amount)}</span>
+              <button class="btn btn-danger" data-id="{item.id}" onclick="IncomeComponent.deleteItem({item.id})">✕</button>
             </div>
           </div>
         `;
