@@ -22,10 +22,10 @@ const DashboardComponent = (() => {
             <span class="stat-label">Total Income</span>
             <div class="stat-icon">💼</div>
           </div>
-          <div class="stat-value">{Utils.formatCurrency(income)}</div>
-          <div class="stat-sub">{Utils.formatMonthYear(month, year)}</div>
+          <div class="stat-value">${Utils.formatCurrency(income)}</div>
+          <div class="stat-sub">${Utils.formatMonthYear(month, year)}</div>
           <div class="stat-progress">
-            <div class="stat-progress-bar" style="width: {Utils.clamp(incomePct,0,100)}%"></div>
+            <div class="stat-progress-bar" style="width: ${Utils.clamp(incomePct,0,100)}%"></div>
           </div>
         </div>
 
@@ -34,10 +34,10 @@ const DashboardComponent = (() => {
             <span class="stat-label">Total Expenses</span>
             <div class="stat-icon">💸</div>
           </div>
-          <div class="stat-value">{Utils.formatCurrency(expenses)}</div>
-          <div class="stat-sub">{expensePct}% of {monthlyBudgetLimit ? 'budget' : 'income'}</div>
+          <div class="stat-value">${Utils.formatCurrency(expenses)}</div>
+          <div class="stat-sub">${expensePct}% of ${monthlyBudgetLimit ? 'budget' : 'income'}</div>
           <div class="stat-progress">
-            <div class="stat-progress-bar" style="width: {Utils.clamp(expensePct,0,100)}%"></div>
+            <div class="stat-progress-bar" style="width: ${Utils.clamp(expensePct,0,100)}%"></div>
           </div>
         </div>
 
@@ -46,10 +46,10 @@ const DashboardComponent = (() => {
             <span class="stat-label">Net Balance</span>
             <div class="stat-icon">${balance >= 0 ? '📈' : '📉'}</div>
           </div>
-          <div class="stat-value" style="{balance < 0 ? 'color: var(--color-danger)' : ''}">
-            {Utils.formatCurrency(balance)}
+          <div class="stat-value" style="${balance < 0 ? 'color: var(--color-danger)' : ''}">
+            ${Utils.formatCurrency(balance)}
           </div>
-          <div class="stat-sub">{balance >= 0 ? 'Surplus' : 'Deficit'} this month</div>
+          <div class="stat-sub">${balance >= 0 ? 'Surplus' : 'Deficit'} this month</div>
         </div>
 
         <div class="stat-card savings">
@@ -57,10 +57,10 @@ const DashboardComponent = (() => {
             <span class="stat-label">Savings Rate</span>
             <div class="stat-icon">🏦</div>
           </div>
-          <div class="stat-value">{savingsPct}%</div>
+          <div class="stat-value">${savingsPct}%</div>
           <div class="stat-sub">of income saved</div>
           <div class="stat-progress">
-            <div class="stat-progress-bar" style="width: {Utils.clamp(savingsPct,0,100)}%"></div>
+            <div class="stat-progress-bar" style="width: ${Utils.clamp(savingsPct,0,100)}%"></div>
           </div>
         </div>
       </div>
