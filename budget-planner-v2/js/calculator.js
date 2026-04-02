@@ -23,19 +23,19 @@ const CalculatorComponent = (() => {
 
         <div class="calc-grid">
           <div class="form-group">
-            <label class="form-label">Monthly Income ($)</label>
+            <label class="form-label">Monthly Income </label>
             <input type="number" class="form-input" id="calc-income"
               placeholder="Auto-filled" min="0" step="100"
               value="${income || ''}" />
           </div>
           <div class="form-group">
-            <label class="form-label">Monthly Expenses ($)</label>
+            <label class="form-label">Monthly Expenses </label>
             <input type="number" class="form-input" id="calc-expenses"
               placeholder="Auto-filled" min="0" step="100"
               value="${expenses || ''}" />
           </div>
           <div class="form-group">
-            <label class="form-label">Savings Goal ($)</label>
+            <label class="form-label">Savings Goal </label>
             <input type="number" class="form-input" id="calc-goal"
               placeholder="e.g. 10000" min="0" step="500"
               value="${savingsGoal || ''}" />
@@ -115,12 +115,12 @@ const CalculatorComponent = (() => {
     resultsEl.innerHTML = `
       <div class="calc-result-box">
         <div class="calc-result-label">Monthly Savings</div>
-        <div class="calc-result-value" style="${monthlySavings < 0 ? 'color:var(--color-danger)' : ''}">
-          ${Utils.formatCurrency(monthlySavings)}
+        <div class="calc-result-value" style="{monthlySavings < 0 ? 'color:var(--color-danger)' : ''}">
+          {Utils.formatCurrency(monthlySavings)}
         </div>
         <div class="calc-result-sub">
-          ${annualSavings >= 0
-            ? `${Utils.formatCurrency(annualSavings)} saved per year`
+          {annualSavings >= 0
+            ? `{Utils.formatCurrency(annualSavings)} saved per year`
             : 'You are spending more than you earn'}
         </div>
       </div>
@@ -128,25 +128,25 @@ const CalculatorComponent = (() => {
       <div class="calc-insights">
         <div class="calc-insight-item">
           <span class="calc-insight-label">💰 Savings Rate</span>
-          <span class="calc-insight-value ${rateClass}">${savingsRate}%</span>
+          <span class="calc-insight-value {rateClass}">{savingsRate}%</span>
         </div>
         <div class="calc-insight-item">
-          <span class="calc-insight-label">📈 1-Year Projection (${rate}% return)</span>
+          <span class="calc-insight-label">📈 1-Year Projection ({rate}% return)</span>
           <span class="calc-insight-value insight-good">${Utils.formatCurrency(projected1yr)}</span>
         </div>
-        ${monthsToGoal !== null ? `
+        {monthsToGoal !== null ? `
         <div class="calc-insight-item">
-          <span class="calc-insight-label">🎯 Time to reach ${Utils.formatCurrency(goal)}</span>
+          <span class="calc-insight-label">🎯 Time to reach {Utils.formatCurrency(goal)}</span>
           <span class="calc-insight-value insight-neutral">
-            ${monthsToGoal >= 12
-              ? `${Math.floor(monthsToGoal/12)}y ${monthsToGoal%12}m`
-              : `${monthsToGoal} months`}
+            {monthsToGoal >= 12
+              ? `{Math.floor(monthsToGoal/12)}y ${monthsToGoal%12}m`
+              : `{monthsToGoal} months`}
           </span>
         </div>
         ` : ''}
       </div>
 
-      ${getTip(savingsRate, monthlySavings)}
+      {getTip(savingsRate, monthlySavings)}
     `;
   }
 
@@ -161,7 +161,7 @@ const CalculatorComponent = (() => {
     } else {
       tip = '🌟 <strong>Excellent savings rate!</strong> You\'re on track. Consider investing in index funds to grow wealth faster.';
     }
-    return `<div class="calc-tip">${tip}</div>`;
+    return `<div class="calc-tip">{tip}</div>`;
   }
 
   return { render };
